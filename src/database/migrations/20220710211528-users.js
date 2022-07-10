@@ -24,6 +24,14 @@ module.exports = {
         allowNull: true,
         defaultValue: 'https://img.icons8.com/stickers/100/000000/test-account.png',
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     });
   },
   down: async (queryInterface) => {
