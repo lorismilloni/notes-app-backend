@@ -1,34 +1,26 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Notes', {
       id: {
         primaryKey: true,
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
       },
-      name: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      lastname: {
+      content: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      passwordHash: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        field: 'password_hash',
-      },
-      avatar: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        defaultValue: 'https://img.icons8.com/stickers/100/000000/test-account.png',
+      userId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'Users',
+          key: 'id',
+        },
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -43,6 +35,6 @@ module.exports = {
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Notes');
   },
 };
