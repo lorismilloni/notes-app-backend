@@ -6,7 +6,7 @@ class Users extends Model {
   name!: string;
   lastname!: string;
   email!: string;
-  password!: string;
+  passwordHash!: string;
   avatar!: string;
   createdAt!: Date;
   updatedAt!: Date;
