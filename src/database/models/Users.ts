@@ -31,7 +31,7 @@ Users.init({
     type: STRING,
     allowNull: false,
   },
-  password: {
+  passwordHash: {
     type: STRING,
     allowNull: false,
   },
